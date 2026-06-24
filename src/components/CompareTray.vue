@@ -11,18 +11,22 @@ defineEmits<{
 </script>
 
 <template>
-  <aside class="compare-tray" aria-live="polite" aria-label="Selected bikes for comparison">
+  <aside
+    v-if="selectedBikes.length"
+    class="compare-tray"
+    aria-live="polite"
+    aria-label="Selected bikes for comparison"
+  >
     <strong>{{ selectedBikes.length }} selected</strong>
-    <span v-if="selectedBikes.length">{{ selectedBikes.map((bike) => bike.name).join(', ') }}</span>
-    <span v-else>Select up to three bikes to compare.</span>
-    <button type="button" :disabled="selectedBikes.length === 0" @click="$emit('clear')">Clear</button>
+    <span>{{ selectedBikes.map((bike) => bike.name).join(', ') }}</span>
+    <button type="button" @click="$emit('clear')">Clear</button>
   </aside>
 </template>
 
 <style scoped>
 .compare-tray {
   align-items: center;
-  background: rgb(255 255 255 / 0.96);
+  background: rgb(255 255 255 / 0.97);
   border: 1px solid var(--gray-20);
   border-radius: var(--radius-button);
   bottom: var(--space-4);
@@ -50,10 +54,6 @@ defineEmits<{
   margin-left: auto;
   min-height: 2.25rem;
   padding: 0 var(--space-4);
-}
-
-.compare-tray button:disabled {
-  opacity: 0.35;
 }
 
 @media (max-width: 760px) {
