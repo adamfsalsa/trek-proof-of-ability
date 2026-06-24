@@ -39,19 +39,21 @@ defineEmits<{
 <style scoped>
 .product-grid {
   display: grid;
-  gap: var(--space-8) var(--space-5);
+  gap: var(--space-10) var(--space-6);
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 @media (max-width: 1180px) {
   .product-grid {
+    gap: var(--space-10) var(--space-5);
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 560px) {
   .product-grid {
     column-gap: var(--space-3);
+    row-gap: var(--space-8);
   }
 }
 </style>
