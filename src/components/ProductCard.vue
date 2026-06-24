@@ -47,16 +47,20 @@ function formatPrice(price: number) {
 .product-card {
   background: var(--white);
   display: grid;
-  grid-template-rows: auto minmax(260px, 1fr) auto;
+  grid-template-rows: 2.75rem minmax(310px, 1fr) auto;
   min-width: 0;
-  padding-bottom: var(--space-6);
+  padding-bottom: var(--space-8);
 }
 
 .product-card__topline {
   align-items: center;
   display: grid;
   grid-template-columns: 1fr auto;
-  min-height: 2.5rem;
+  min-height: 2.75rem;
+}
+
+.product-card__compare {
+  justify-self: end;
 }
 
 .product-card__badge {
@@ -64,13 +68,13 @@ function formatPrice(price: number) {
   color: #067400;
   font-weight: 900;
   justify-self: start;
-  padding: 0.35rem 0.65rem;
+  padding: 0.35rem 0.75rem;
 }
 
 .product-card__image {
   align-items: center;
   display: grid;
-  min-height: 290px;
+  min-height: 310px;
   overflow: hidden;
   padding: var(--space-4);
   place-items: center;
@@ -82,7 +86,7 @@ function formatPrice(price: number) {
   display: block;
   height: 4.8rem;
   position: relative;
-  width: min(100%, 24rem);
+  width: min(100%, 25rem);
 }
 
 .bike-bike::before,
@@ -91,9 +95,9 @@ function formatPrice(price: number) {
   border-radius: 50%;
   bottom: -3.2rem;
   content: '';
-  height: clamp(4.6rem, 8vw, 6.8rem);
+  height: clamp(4.8rem, 8vw, 7rem);
   position: absolute;
-  width: clamp(4.6rem, 8vw, 6.8rem);
+  width: clamp(4.8rem, 8vw, 7rem);
 }
 
 .bike-bike::before {
@@ -122,25 +126,37 @@ function formatPrice(price: number) {
 
 .product-card h3 {
   font-size: 1rem;
-  margin: var(--space-4) 0 var(--space-3);
+  font-weight: 900;
+  margin: var(--space-5) 0 var(--space-3);
 }
 
 .product-card p {
   color: var(--gray-90);
+  font-size: 1rem;
   margin: 0;
 }
 
 @media (max-width: 760px) {
   .product-card {
-    grid-template-rows: auto minmax(250px, 1fr) auto;
+    grid-template-rows: 3.25rem minmax(300px, 1fr) auto;
+    padding-bottom: var(--space-8);
   }
 
   .product-card__image {
-    min-height: 300px;
+    min-height: 305px;
+  }
+
+  .product-card h3,
+  .product-card p {
+    font-size: 1.25rem;
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 560px) {
+  .product-card {
+    grid-template-rows: 3rem minmax(210px, 1fr) auto;
+  }
+
   .product-card__image {
     min-height: 210px;
     padding-inline: 0;
@@ -148,6 +164,11 @@ function formatPrice(price: number) {
 
   .product-card__topline {
     align-items: start;
+  }
+
+  .product-card h3,
+  .product-card p {
+    font-size: 1rem;
   }
 }
 </style>
