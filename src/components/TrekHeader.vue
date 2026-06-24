@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Parts', 'Accessories', 'Apparel', 'Sale'];
+const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Parts', 'Accessories', 'Apparel', 'Sale', 'Pre-owned', 'Ride Club', 'Bike Shops'];
 </script>
 
 <template>
@@ -22,13 +22,13 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
 
     <div class="site-header__actions">
       <label class="search-field">
+        <span class="search-icon" aria-hidden="true"></span>
         <span class="sr-only">Search</span>
-        <span aria-hidden="true">⌕</span>
         <input type="search" placeholder="Search" />
       </label>
 
-      <button class="icon-button site-header__search" type="button" aria-label="Search">⌕</button>
-      <button class="icon-button" type="button" aria-label="Cart">🛒</button>
+      <button class="icon-button site-header__search" type="button" aria-label="Search"><span class="search-icon" aria-hidden="true"></span></button>
+      <button class="icon-button cart-button" type="button" aria-label="Cart"><span aria-hidden="true"></span></button>
     </div>
   </header>
 </template>
@@ -75,7 +75,7 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
 
 .site-header__nav {
   display: flex;
-  gap: clamp(0.75rem, 1.4vw, 1.4rem);
+  gap: clamp(0.65rem, 1.05vw, 1.3rem);
   justify-content: center;
 }
 
@@ -84,6 +84,7 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
   font-size: 0.875rem;
   font-weight: 800;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .site-header__actions {
@@ -122,7 +123,57 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
   padding: var(--space-2);
 }
 
-.site-header__menu {
+.search-icon {
+  border: 3px solid currentcolor;
+  border-radius: 50%;
+  display: inline-block;
+  height: 1.25rem;
+  position: relative;
+  width: 1.25rem;
+}
+
+.search-icon::after {
+  background: currentcolor;
+  bottom: -0.45rem;
+  content: '';
+  height: 0.65rem;
+  position: absolute;
+  right: -0.25rem;
+  transform: rotate(-45deg);
+  width: 3px;
+}
+
+.cart-button span {
+  border-bottom: 4px solid currentcolor;
+  border-left: 4px solid currentcolor;
+  border-radius: 0 0 4px 4px;
+  display: inline-block;
+  height: 1.15rem;
+  position: relative;
+  width: 1.45rem;
+}
+
+.cart-button span::before,
+.cart-button span::after {
+  background: currentcolor;
+  border-radius: 50%;
+  bottom: -0.55rem;
+  content: '';
+  height: 0.28rem;
+  position: absolute;
+  width: 0.28rem;
+}
+
+.cart-button span::before {
+  left: 0.05rem;
+}
+
+.cart-button span::after {
+  right: 0.05rem;
+}
+
+.site-header__menu,
+.site-header__search {
   display: none;
 }
 
@@ -134,8 +185,14 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
   width: 28px;
 }
 
-.site-header__search {
-  display: none;
+@media (max-width: 1180px) {
+  .site-header__nav a {
+    font-size: 0.8rem;
+  }
+
+  .search-field {
+    min-width: 13rem;
+  }
 }
 
 @media (max-width: 960px) {
@@ -158,7 +215,7 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
 
   .site-header__logo {
     justify-self: center;
-    font-size: 1.45rem;
+    font-size: 1.55rem;
   }
 }
 </style>
