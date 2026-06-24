@@ -7,14 +7,20 @@ defineEmits<{ 'update:itemsPerPage': [value: number]; 'update:sort': [value: str
   <div class="toolbar">
     <p>{{ resultCount }} Results</p>
     <div class="toolbar__controls">
-      <label><strong>Items</strong>
-        <select :value="itemsPerPage" @change="$emit('update:itemsPerPage', Number(($event.target as HTMLSelectElement).value))">
-          <option :value="24">24</option><option :value="48">48</option><option :value="72">72</option>
+      <label>
+        <strong>Items</strong>
+        <select :value="itemsPerPage" aria-label="Items per page" @change="$emit('update:itemsPerPage', Number(($event.target as HTMLSelectElement).value))">
+          <option :value="24">24</option>
+          <option :value="48">48</option>
+          <option :value="72">72</option>
         </select>
       </label>
-      <label><strong>Sort by</strong>
-        <select :value="sort" @change="$emit('update:sort', ($event.target as HTMLSelectElement).value)">
-          <option value="featured">Featured</option><option value="az">A-Z</option><option value="price-low">Price Low-High</option>
+      <label>
+        <strong>Sort by</strong>
+        <select :value="sort" aria-label="Sort products" @change="$emit('update:sort', ($event.target as HTMLSelectElement).value)">
+          <option value="featured">Featured</option>
+          <option value="az">A-Z</option>
+          <option value="price-low">Price Low-High</option>
         </select>
       </label>
     </div>
@@ -22,9 +28,71 @@ defineEmits<{ 'update:itemsPerPage': [value: number]; 'update:sort': [value: str
 </template>
 
 <style scoped>
-.toolbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
-p { font-weight: 900; margin: 0; }
-.toolbar__controls { display: flex; gap: 1rem; }
-label { display: flex; gap: .5rem; align-items: center; }
-select { border: 0; background: white; }
+.toolbar {
+  align-items: center;
+  display: flex;
+  gap: var(--space-4);
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+.toolbar__controls {
+  align-items: center;
+  display: flex;
+  gap: var(--space-5);
+}
+
+label {
+  align-items: center;
+  display: flex;
+  gap: var(--space-2);
+  white-space: nowrap;
+}
+
+strong {
+  font-weight: 900;
+}
+
+select {
+  appearance: auto;
+  background: var(--white);
+  border: 0;
+  color: var(--black);
+  font-size: 1rem;
+  padding: var(--space-1);
+}
+
+@media (max-width: 760px) {
+  .toolbar {
+    margin-bottom: var(--space-4);
+  }
+
+  p,
+  select,
+  label {
+    font-size: 1.25rem;
+  }
+
+  .toolbar__controls {
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 560px) {
+  p,
+  select,
+  label {
+    font-size: 1rem;
+  }
+
+  .toolbar__controls {
+    gap: var(--space-2);
+  }
+}
 </style>
