@@ -47,7 +47,7 @@ function formatPrice(price: number) {
 .product-card {
   background: var(--white);
   display: grid;
-  grid-template-rows: 2.75rem minmax(310px, 1fr) auto;
+  grid-template-rows: 2.75rem minmax(250px, auto) auto;
   min-width: 0;
   padding-bottom: var(--space-8);
 }
@@ -74,30 +74,30 @@ function formatPrice(price: number) {
 .product-card__image {
   align-items: center;
   display: grid;
-  min-height: 310px;
+  min-height: 250px;
   overflow: hidden;
   padding: var(--space-4);
   place-items: center;
 }
 
 .bike-bike {
-  border-bottom: 0.58rem solid var(--bike-frame, #17483a);
+  border-bottom: 0.42rem solid var(--bike-frame, #17483a);
   border-radius: 999px;
   display: block;
-  height: 4.8rem;
+  height: 3.4rem;
   position: relative;
-  width: min(100%, 25rem);
+  width: min(82%, 19rem);
 }
 
 .bike-bike::before,
 .bike-bike::after {
-  border: 0.55rem solid #1c1c1c;
+  border: 0.42rem solid #1c1c1c;
   border-radius: 50%;
-  bottom: -3.2rem;
+  bottom: -2.35rem;
   content: '';
-  height: clamp(4.8rem, 8vw, 7rem);
+  height: clamp(3.75rem, 5.3vw, 5.35rem);
   position: absolute;
-  width: clamp(4.8rem, 8vw, 7rem);
+  width: clamp(3.75rem, 5.3vw, 5.35rem);
 }
 
 .bike-bike::before {
@@ -138,12 +138,16 @@ function formatPrice(price: number) {
 
 @media (max-width: 760px) {
   .product-card {
-    grid-template-rows: 3.25rem minmax(300px, 1fr) auto;
+    grid-template-rows: 3.25rem minmax(260px, auto) auto;
     padding-bottom: var(--space-8);
   }
 
   .product-card__image {
-    min-height: 305px;
+    min-height: 260px;
+  }
+
+  .bike-bike {
+    width: min(84%, 18rem);
   }
 
   .product-card h3,
@@ -154,12 +158,22 @@ function formatPrice(price: number) {
 
 @media (max-width: 560px) {
   .product-card {
-    grid-template-rows: 3rem minmax(210px, 1fr) auto;
+    grid-template-rows: 3rem minmax(180px, auto) auto;
   }
 
   .product-card__image {
-    min-height: 210px;
+    min-height: 180px;
     padding-inline: 0;
+  }
+
+  .bike-bike {
+    width: min(88%, 13rem);
+  }
+
+  .bike-bike::before,
+  .bike-bike::after {
+    height: 3.65rem;
+    width: 3.65rem;
   }
 
   .product-card__topline {
