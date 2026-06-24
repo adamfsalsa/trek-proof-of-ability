@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/vue';
+import { fireEvent, render, screen, within } from '@testing-library/vue';
 import { describe, expect, it } from 'vitest';
 import App from '../src/App.vue';
 
@@ -19,7 +19,11 @@ describe('App', () => {
     const compareButtons = screen.getAllByRole('button', { name: /compare/i });
     await fireEvent.click(compareButtons[0]);
 
-    expect(screen.getByText(/FX\+ 1S/)).toBeTruthy();
-    expect(screen.getByText('1 selected')).toBeTruthy();
+    const compareTray = screen.getByRole('complementary', {
+      name: 'Selected bikes for comparison',
+    });
+
+    expect(within(compareTray).getByText('1 selected')).toBeTruthy();
+    expect(within(compareTray).getByText(/FX\+ 1S/)).toBeTruthy();
   });
 });
