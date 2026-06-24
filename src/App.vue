@@ -60,9 +60,10 @@ function toggleCompare(bikeId: string) {
 
 <style scoped>
 .plp {
+  background: var(--white);
   display: grid;
   gap: var(--space-6);
-  grid-template-columns: minmax(15rem, 1fr) minmax(0, 5fr);
+  grid-template-columns: minmax(16rem, 1fr) minmax(0, 5fr);
   padding: var(--space-5) var(--space-5) var(--space-10);
 }
 
@@ -73,13 +74,13 @@ function toggleCompare(bikeId: string) {
 @media (max-width: 900px) {
   .plp {
     display: block;
-    padding: var(--space-4) var(--space-5) var(--space-8);
+    padding: var(--space-5) var(--space-5) var(--space-8);
   }
 }
 
 @media (max-width: 560px) {
   .plp {
-    padding-inline: var(--space-3);
+    padding: var(--space-4) var(--space-3) var(--space-8);
   }
 }
 </style>
