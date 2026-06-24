@@ -31,9 +31,9 @@ function formatPrice(price: number) {
       />
     </div>
 
-    <div class="product-card__image" :class="`product-card__image--${product.silhouette}`" aria-hidden="true">
-      <span class="bike-bike"></span>
-    </div>
+    <figure class="product-card__image">
+      <img :src="product.image.src" :alt="product.image.alt" loading="lazy" decoding="async" />
+    </figure>
 
     <div class="product-card__body">
       <ColorSwatches :colors="product.colors" />
@@ -47,7 +47,7 @@ function formatPrice(price: number) {
 .product-card {
   background: var(--white);
   display: grid;
-  grid-template-rows: 2.75rem minmax(250px, auto) auto;
+  grid-template-rows: 2.75rem minmax(310px, auto) auto;
   min-width: 0;
   padding-bottom: var(--space-8);
 }
@@ -74,50 +74,21 @@ function formatPrice(price: number) {
 .product-card__image {
   align-items: center;
   display: grid;
-  min-height: 250px;
+  margin: 0;
+  min-height: 310px;
   overflow: hidden;
-  padding: var(--space-4);
+  padding: var(--space-3);
   place-items: center;
 }
 
-.bike-bike {
-  border-bottom: 0.42rem solid var(--bike-frame, #17483a);
-  border-radius: 999px;
+.product-card__image img {
+  aspect-ratio: 4 / 3;
   display: block;
-  height: 3.4rem;
-  position: relative;
-  width: min(82%, 19rem);
-}
-
-.bike-bike::before,
-.bike-bike::after {
-  border: 0.42rem solid #1c1c1c;
-  border-radius: 50%;
-  bottom: -2.35rem;
-  content: '';
-  height: clamp(3.75rem, 5.3vw, 5.35rem);
-  position: absolute;
-  width: clamp(3.75rem, 5.3vw, 5.35rem);
-}
-
-.bike-bike::before {
-  left: 0;
-}
-
-.bike-bike::after {
-  right: 0;
-}
-
-.product-card__image--stepthrough {
-  --bike-frame: #d9e8f7;
-}
-
-.product-card__image--full-suspension {
-  --bike-frame: #202124;
-}
-
-.product-card__image--cargo {
-  --bike-frame: #717c73;
+  height: auto;
+  max-height: 310px;
+  object-fit: contain;
+  object-position: center;
+  width: min(100%, 30rem);
 }
 
 .product-card__body {
@@ -138,16 +109,16 @@ function formatPrice(price: number) {
 
 @media (max-width: 760px) {
   .product-card {
-    grid-template-rows: 3.25rem minmax(260px, auto) auto;
+    grid-template-rows: 3.25rem minmax(300px, auto) auto;
     padding-bottom: var(--space-8);
   }
 
   .product-card__image {
-    min-height: 260px;
+    min-height: 300px;
   }
 
-  .bike-bike {
-    width: min(84%, 18rem);
+  .product-card__image img {
+    max-height: 300px;
   }
 
   .product-card h3,
@@ -158,22 +129,16 @@ function formatPrice(price: number) {
 
 @media (max-width: 560px) {
   .product-card {
-    grid-template-rows: 3rem minmax(180px, auto) auto;
+    grid-template-rows: 3rem minmax(210px, auto) auto;
   }
 
   .product-card__image {
-    min-height: 180px;
+    min-height: 210px;
     padding-inline: 0;
   }
 
-  .bike-bike {
-    width: min(88%, 13rem);
-  }
-
-  .bike-bike::before,
-  .bike-bike::after {
-    height: 3.65rem;
-    width: 3.65rem;
+  .product-card__image img {
+    max-height: 210px;
   }
 
   .product-card__topline {

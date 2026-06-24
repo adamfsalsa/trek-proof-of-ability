@@ -5,6 +5,12 @@ export interface ProductColor {
   value: string;
 }
 
+export interface BikeImage {
+  src: string;
+  alt: string;
+  credit: string;
+}
+
 export interface Bike {
   id: string;
   name: string;
@@ -14,6 +20,7 @@ export interface Bike {
   isNew?: boolean;
   colors: ProductColor[];
   silhouette: 'hardtail' | 'stepthrough' | 'full-suspension' | 'cargo';
+  image: BikeImage;
 }
 
 export interface FilterOption {
@@ -35,4 +42,5 @@ export interface PromoTile {
   title: string;
   copy: string;
   cta: string;
+  image: BikeImage;
 }

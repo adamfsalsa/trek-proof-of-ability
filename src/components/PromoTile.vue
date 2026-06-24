@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <article class="promo-tile" aria-labelledby="promo-title">
-    <div class="promo-tile__art" aria-hidden="true"></div>
+    <img :src="promo.image.src" :alt="promo.image.alt" loading="lazy" decoding="async" />
     <div class="promo-tile__content">
       <h3 id="promo-title">{{ promo.title }}</h3>
       <p>{{ promo.eyebrow }}</p>
@@ -19,10 +19,7 @@ defineProps<{
 
 <style scoped>
 .promo-tile {
-  align-items: end;
-  background:
-    linear-gradient(rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.52)),
-    linear-gradient(135deg, #b9d7ea, #26394c);
+  background: var(--gray-90);
   color: var(--white);
   display: grid;
   min-height: 420px;
@@ -30,16 +27,23 @@ defineProps<{
   position: relative;
 }
 
-.promo-tile__art {
-  border-left: 1.1rem solid rgb(255 255 255 / 0.58);
-  height: 120%;
-  left: 42%;
+.promo-tile::after {
+  background: linear-gradient(rgb(0 0 0 / 0.05), rgb(0 0 0 / 0.58));
+  content: '';
+  inset: 0;
   position: absolute;
-  top: -10%;
-  transform: rotate(18deg);
+}
+
+.promo-tile img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
 }
 
 .promo-tile__content {
+  align-self: end;
   padding: var(--space-5);
   position: relative;
   text-align: center;

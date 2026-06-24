@@ -1,5 +1,8 @@
 import type { Bike, FilterGroup, PromoTile } from '../types/bike';
 
+const unsplash = (id: string, width = 900) =>
+  `https://unsplash.com/photos/${id}/download?force=true&w=${width}`;
+
 export const bikes: Bike[] = [
   {
     id: 'fx-plus-1s',
@@ -12,6 +15,11 @@ export const bikes: Bike[] = [
       { name: 'Matte Trek Black', value: '#000000' },
     ],
     silhouette: 'hardtail',
+    image: {
+      src: unsplash('9tehhmXFeLU'),
+      alt: 'Teal electric commuter bike being ridden on a city street.',
+      credit: 'Photo by Hiboy on Unsplash',
+    },
   },
   {
     id: 'townie-go-s',
@@ -26,6 +34,11 @@ export const bikes: Bike[] = [
       { name: 'Silver', value: '#d7d7d7' },
     ],
     silhouette: 'stepthrough',
+    image: {
+      src: unsplash('NymqZR6GkgQ'),
+      alt: 'White step-through electric bike ridden along a sidewalk.',
+      credit: 'Photo by KBO Bike on Unsplash',
+    },
   },
   {
     id: 'rail-plus-8',
@@ -39,6 +52,11 @@ export const bikes: Bike[] = [
       { name: 'Dark Web', value: '#4b4b4b' },
     ],
     silhouette: 'full-suspension',
+    image: {
+      src: unsplash('29d_e8sa10w'),
+      alt: 'Rider on a gray fat-tire electric bike in an urban setting.',
+      credit: 'Photo by KINGBULL Bikes on Unsplash',
+    },
   },
   {
     id: 'rail-plus-5',
@@ -52,6 +70,11 @@ export const bikes: Bike[] = [
       { name: 'Bronze', value: '#98674f' },
     ],
     silhouette: 'full-suspension',
+    image: {
+      src: unsplash('yy9wh76UmBo'),
+      alt: 'Cyclist riding a gray electric bike near concrete city architecture.',
+      credit: 'Photo by Heybike on Unsplash',
+    },
   },
   {
     id: 'charter-plus-lowstep',
@@ -65,6 +88,11 @@ export const bikes: Bike[] = [
       { name: 'Trek Green', value: '#45b931' },
     ],
     silhouette: 'stepthrough',
+    image: {
+      src: unsplash('Juvjki6ApzI'),
+      alt: 'White electric bicycle ridden down a city street.',
+      credit: 'Photo by KBO Bike on Unsplash',
+    },
   },
   {
     id: 'fetch-plus',
@@ -78,6 +106,11 @@ export const bikes: Bike[] = [
       { name: 'Deep Smoke', value: '#2f3437' },
     ],
     silhouette: 'cargo',
+    image: {
+      src: unsplash('LhFecWXJuIE'),
+      alt: 'Rider on an electric bike moving through a city street.',
+      credit: 'Photo by Yanni Roua on Unsplash',
+    },
   },
 ];
 
@@ -136,4 +169,15 @@ export const promoTile: PromoTile = {
   title: 'Find your e-bike',
   copy: 'Answer a few quick questions and narrow the ride style that fits your life.',
   cta: 'Start now',
+  image: {
+    src: unsplash('nB2c__FPOvI', 900),
+    alt: 'Person riding a teal electric bike along a tree-lined sidewalk.',
+    credit: 'Photo by Fahrbike Official on Unsplash',
+  },
+};
+
+export const heroImage = {
+  src: unsplash('nB2c__FPOvI', 1800),
+  alt: 'Person riding a teal electric bike along a tree-lined sidewalk.',
+  credit: 'Photo by Fahrbike Official on Unsplash',
 };
