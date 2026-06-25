@@ -31,9 +31,11 @@ defineEmits<{ 'update:itemsPerPage': [value: number]; 'update:sort': [value: str
 .toolbar {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-4);
   justify-content: space-between;
   margin-bottom: var(--space-5);
+  min-width: 0;
 }
 
 p {
@@ -45,7 +47,10 @@ p {
 .toolbar__controls {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-5);
+  justify-content: flex-end;
+  min-width: 0;
 }
 
 label {
@@ -86,23 +91,35 @@ select:focus-visible {
   p,
   select,
   label {
-    font-size: 1.25rem;
-  }
-
-  .toolbar__controls {
-    gap: var(--space-4);
-  }
-}
-
-@media (max-width: 560px) {
-  p,
-  select,
-  label {
     font-size: 1rem;
   }
 
   .toolbar__controls {
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 420px) {
+  .toolbar {
+    align-items: stretch;
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar__controls {
+    display: grid;
     gap: var(--space-2);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+  }
+
+  label {
+    justify-content: space-between;
+  }
+
+  select {
+    max-width: 100%;
   }
 }
 </style>
