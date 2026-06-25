@@ -1,23 +1,33 @@
 # Trek Frontend Proof of Ability
 
-A focused Vue + TypeScript frontend engineering case study based on Trek's public Electric Bikes product listing page.
+A focused Vue 3 + TypeScript frontend engineering case study based on Trek's public Electric Bikes product listing page.
 
-This is **not** a production clone of TrekBikes.com. It is a proof-of-ability project that uses mock product data, remote licensed placeholder bike imagery, locally defined design tokens, and a componentized implementation to demonstrate the kind of work described in Trek's Frontend Engineer listing: translating UX/UI references into responsive, accessible, reusable frontend components.
+**Live demo:** https://trek-proof-of-ability.vercel.app/  
+**GitHub repo:** https://github.com/adamfsalsa/trek-proof-of-ability  
+**Implementation PR:** https://github.com/adamfsalsa/trek-proof-of-ability/pull/3
 
-## Why this project exists
+This is **not** a production clone of TrekBikes.com. It is a proof-of-ability project that uses mock product data, remote placeholder bike imagery, locally defined design tokens, and a componentized implementation to demonstrate the kind of work described in Trek's Frontend Engineer listing: translating UX/UI references into responsive, accessible, reusable frontend components.
 
-The job listing emphasizes:
+## Case study summary
 
-- Vue and TypeScript frontend development
-- Responsive, accessible web interfaces
-- UX/UI-to-component translation
-- Internal design system contribution
-- Testing and troubleshooting
-- Technical documentation
-- Practical use of AI coding tools
-- Collaboration with UX, QA, and software delivery partners
+I chose a product listing page because it exercises the practical frontend responsibilities in the role: component architecture, responsive layout, accessibility, product-card composition, stateful UI, design-token thinking, QA validation, and documentation.
 
-This project is scoped around those exact signals rather than building a large fake e-commerce application.
+The implementation turns the public Electric Bikes PLP reference into a Vue 3 application with reusable sections for the header, hero, breadcrumbs, intro copy, filters, toolbar, product grid, product cards, color swatches, comparison controls, promo tile, and comparison tray.
+
+The goal was not to recreate Trek's internal production stack. The goal was to show that I can inspect a real UX reference, break it into maintainable frontend components, make pragmatic implementation tradeoffs, validate behavior locally and in CI, and document the work clearly enough for UX, QA, and engineering partners to review.
+
+## Role alignment
+
+| Trek Frontend Engineer signal | How this project demonstrates it |
+| --- | --- |
+| Vue + TypeScript | Vue 3 single-file components, typed props, typed data models, Composition API patterns, and Vite build tooling |
+| Responsive interfaces | Desktop, tablet, and mobile PLP layout with safe narrow-screen reflow and no horizontal clipping |
+| Accessible web UI | Semantic landmarks, native controls, keyboard-reachable filters and compare actions, visible focus styles, ARIA state, and descriptive image alt text |
+| UX/UI to component translation | Public page reference translated into component boundaries that map to PLP sections and reusable UI primitives |
+| Design system contribution | Shared CSS tokens for color, spacing, typography, radius, focus treatment, and button treatment |
+| Testing and troubleshooting | Vitest + Testing Library smoke tests, local build validation, GitHub Actions test/build workflow, and production deployment |
+| Technical documentation | Design translation, accessibility, performance, image policy, review checklist, AI workflow, and submission notes |
+| AI-assisted workflow | AI was used for scaffolding, refactoring, debugging, review, and documentation, with human review controlling scope and final decisions |
 
 ## What this demonstrates
 
@@ -25,7 +35,7 @@ This project is scoped around those exact signals rather than building a large f
 - Vite build tooling
 - Stateful client-side UI for product comparison
 - Responsive desktop, tablet, and mobile product listing layout
-- Accessible buttons, native selects, semantic landmarks, collapsible filters, and compare state
+- WCAG 2.1 AA-minded accessibility implementation for keyboard use, semantic HTML, visible focus, understandable control state, readable contrast, responsive reflow, and reduced-motion support
 - Design-token CSS layer for Trek-inspired spacing, typography, color, and button treatment
 - Product-card, toolbar, filter, promo, and compare components that could map into a design system
 - Vitest + Testing Library smoke tests
@@ -110,11 +120,13 @@ Current focus areas:
 
 - Semantic page regions and heading structure
 - Keyboard-reachable controls
-- Native `button` and `select` elements where possible
-- `aria-expanded` on collapsible filter groups
+- Native `button`, `a`, `input`, and `select` elements where possible
+- `aria-expanded` on mobile filters and collapsible filter groups
 - `aria-pressed` on compare toggles
 - Named navigation and comparison regions
 - Visible focus styles
+- Descriptive image alt text
+- Contrast-conscious color tokens and image overlays
 - Responsive layout without horizontal overflow
 
 ## Performance focus
@@ -154,10 +166,9 @@ See [`docs/SUBMISSION_NOTE.md`](docs/SUBMISSION_NOTE.md) for a short message dra
 
 ## What I would improve next
 
-- Add a true mobile filter drawer with focus management
 - Add Playwright end-to-end tests for keyboard and responsive flows
 - Add automated axe checks
 - Add Storybook or Histoire stories for reusable components
 - Refine product-card hover/image-swap states against approved imagery
 - Integrate with CMS/API-shaped data
-- Deploy a live preview through Vercel, Netlify, or GitHub Pages
+- Replace mock product data and placeholder imagery with approved production sources
