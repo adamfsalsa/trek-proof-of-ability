@@ -30,9 +30,23 @@
 }
 
 .breadcrumbs a {
+  border-radius: var(--radius-button);
   color: inherit;
   font-size: 1rem;
+  padding: var(--space-1) var(--space-2);
   text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  background: var(--gray-10);
+  color: var(--brand-red);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.breadcrumbs a[aria-current='page'] {
+  color: var(--gray-90);
+  font-weight: 900;
 }
 
 @media (max-width: 760px) {
