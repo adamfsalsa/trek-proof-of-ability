@@ -16,7 +16,40 @@ defineProps<{ groups: FilterGroupType[] }>();
 </template>
 
 <style scoped>
-.filters__mobile-button { display: none; width: 100%; min-height: 4rem; background: white; border: 1px solid #1a1a1a; border-radius: 8px; font-weight: 900; font-size: 1.35rem; }
-.filters__panel h2 { border-bottom: 1px solid #e8e8e8; padding-bottom: 1rem; }
-@media (max-width: 900px) { .filters__mobile-button { display: block; margin-bottom: 3rem; } .filters__panel { display: none; } }
+.filters__mobile-button {
+  background: white;
+  border: 1px solid #1a1a1a;
+  border-radius: 8px;
+  display: none;
+  font-size: 1.35rem;
+  font-weight: 900;
+  min-height: 4rem;
+  width: 100%;
+}
+
+.filters__mobile-button:hover {
+  background: var(--gray-10);
+  border-color: var(--brand-red);
+  color: var(--brand-red);
+}
+
+.filters__mobile-button:active {
+  transform: translateY(1px);
+}
+
+.filters__panel h2 {
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+  .filters__mobile-button {
+    display: block;
+    margin-bottom: 3rem;
+  }
+
+  .filters__panel {
+    display: none;
+  }
+}
 </style>
