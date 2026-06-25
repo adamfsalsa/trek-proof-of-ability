@@ -56,6 +56,15 @@ defineEmits<{
   padding: 0 var(--space-4);
 }
 
+.compare-tray button:hover {
+  background: var(--brand-red);
+  box-shadow: 0 8px 18px rgb(206 26 43 / 0.22);
+}
+
+.compare-tray button:active {
+  transform: translateY(1px);
+}
+
 @media (max-width: 760px) {
   .compare-tray {
     align-items: stretch;
