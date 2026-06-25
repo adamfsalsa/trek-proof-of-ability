@@ -36,6 +36,14 @@ defineProps<{
   box-shadow: 0 0 0 2px var(--gray-20), 0 0 0 4px rgb(0 0 0 / 0.08);
   display: inline-flex;
   height: 2.05rem;
+  transition:
+    box-shadow 160ms ease,
+    transform 160ms ease;
   width: 2.05rem;
+}
+
+.swatch:hover {
+  box-shadow: 0 0 0 2px var(--gray-90), 0 0 0 5px rgb(0 0 0 / 0.1);
+  transform: scale(1.08);
 }
 </style>
