@@ -30,7 +30,7 @@ This project is scoped around those exact signals rather than building a large f
 - Product-card, toolbar, filter, promo, and compare components that could map into a design system
 - Vitest + Testing Library smoke tests
 - GitHub Actions validation for tests and production build
-- Documentation that explains design translation, AI workflow, accessibility, performance, and image choices
+- Documentation that explains design translation, Figma-to-Vue workflow, AI workflow, accessibility, performance, and image choices
 
 ## Local setup
 
@@ -93,6 +93,12 @@ See [`docs/TREK_PLP_TRANSLATION_BRIEF.md`](docs/TREK_PLP_TRANSLATION_BRIEF.md).
 
 Because I did not have access to Trek's internal Figma files, I treated the public Electric Bikes PLP, desktop/mobile screenshots, rendered DOM structure, and observed design tokens as the design reference. The goal was to simulate translating a UX/UI reference into reusable Vue components.
 
+## Figma-to-Vue workflow proof
+
+See [`docs/FIGMA_TO_VUE_WORKFLOW.md`](docs/FIGMA_TO_VUE_WORKFLOW.md).
+
+A companion Figma file was created to demonstrate a smaller handoff loop: public PLP reference, self-authored ProductCard/ProductGrid component spec, design-token notes, accessibility handoff notes, and mapping to Vue components.
+
 ## Accessibility focus
 
 See [`docs/ACCESSIBILITY_NOTES.md`](docs/ACCESSIBILITY_NOTES.md).
@@ -149,6 +155,6 @@ See [`docs/SUBMISSION_NOTE.md`](docs/SUBMISSION_NOTE.md) for a short message dra
 - Add Playwright end-to-end tests for keyboard and responsive flows
 - Add automated axe checks
 - Add Storybook or Histoire stories for reusable components
-- Add product-card hover/image-swap states
+- Refine product-card hover/image-swap states against approved imagery
 - Integrate with CMS/API-shaped data
 - Deploy a live preview through Vercel, Netlify, or GitHub Pages
