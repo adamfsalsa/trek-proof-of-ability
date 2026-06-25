@@ -50,10 +50,27 @@ defineEmits<{
   }
 }
 
+@media (max-width: 760px) {
+  .product-grid {
+    column-gap: var(--space-4);
+    row-gap: var(--space-8);
+  }
+
+  .product-grid :deep(.promo-tile) {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (max-width: 560px) {
   .product-grid {
     column-gap: var(--space-3);
-    row-gap: var(--space-8);
+    row-gap: var(--space-6);
+  }
+}
+
+@media (max-width: 359px) {
+  .product-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>
