@@ -1,14 +1,25 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import type { FilterGroup as FilterGroupType } from '../types/bike';
 import FilterGroup from './FilterGroup.vue';
 
 defineProps<{ groups: FilterGroupType[] }>();
+
+const mobileFiltersOpen = ref(false);
 </script>
 
 <template>
   <div class="filters">
-    <button class="filters__mobile-button" type="button" aria-controls="filter-sidebar">☷ Filters</button>
-    <aside id="filter-sidebar" class="filters__panel" aria-label="Filters">
+    <button
+      class="filters__mobile-button"
+      type="button"
+      aria-controls="filter-sidebar"
+      :aria-expanded="mobileFiltersOpen"
+      @click="mobileFiltersOpen = !mobileFiltersOpen"
+    >
+      ☷ Filters
+    </button>
+    <aside id="filter-sidebar" class="filters__panel" :class="{ 'filters__panel--open': mobileFiltersOpen }" aria-label="Filters">
       <h2>Filters</h2>
       <FilterGroup v-for="group in groups" :key="group.id" :group="group" />
     </aside>
@@ -45,11 +56,19 @@ defineProps<{ groups: FilterGroupType[] }>();
 @media (max-width: 900px) {
   .filters__mobile-button {
     display: block;
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-4);
   }
 
   .filters__panel {
     display: none;
+  }
+
+  .filters__panel--open {
+    border: 1px solid var(--gray-10);
+    border-radius: var(--radius-button);
+    display: block;
+    margin-bottom: var(--space-5);
+    padding: var(--space-3);
   }
 }
 </style>
