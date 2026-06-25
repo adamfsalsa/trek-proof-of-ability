@@ -46,10 +46,16 @@ function formatPrice(price: number) {
 <style scoped>
 .product-card {
   background: var(--white);
+  border-radius: 2px;
   display: grid;
   grid-template-rows: 2.75rem minmax(310px, auto) auto;
   min-width: 0;
   padding-bottom: var(--space-8);
+}
+
+.product-card:hover {
+  box-shadow: 0 12px 28px rgb(0 0 0 / 0.08);
+  transform: translateY(-2px);
 }
 
 .product-card__topline {
@@ -73,12 +79,17 @@ function formatPrice(price: number) {
 
 .product-card__image {
   align-items: center;
+  background: var(--white);
   display: grid;
   margin: 0;
   min-height: 310px;
   overflow: hidden;
   padding: var(--space-3);
   place-items: center;
+}
+
+.product-card:hover .product-card__image {
+  background: #fafafa;
 }
 
 .product-card__image img {
@@ -88,7 +99,12 @@ function formatPrice(price: number) {
   max-height: 310px;
   object-fit: contain;
   object-position: center;
+  transition: transform 180ms ease;
   width: min(100%, 30rem);
+}
+
+.product-card:hover .product-card__image img {
+  transform: scale(1.025);
 }
 
 .product-card__body {
@@ -99,6 +115,14 @@ function formatPrice(price: number) {
   font-size: 1rem;
   font-weight: 900;
   margin: var(--space-5) 0 var(--space-3);
+  text-decoration-color: transparent;
+  text-underline-offset: 0.16em;
+}
+
+.product-card:hover h3 {
+  color: var(--brand-red);
+  text-decoration: underline;
+  text-decoration-color: currentcolor;
 }
 
 .product-card p {
