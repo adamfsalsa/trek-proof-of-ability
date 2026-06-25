@@ -26,6 +26,7 @@ defineEmits<{
   font-size: 1rem;
   gap: var(--space-2);
   padding: var(--space-1) var(--space-2);
+  white-space: nowrap;
 }
 
 .compare-button:hover {
@@ -61,7 +62,20 @@ defineEmits<{
 
 @media (max-width: 760px) {
   .compare-button {
-    font-size: 1.25rem;
+    font-size: 1rem;
+    gap: var(--space-1);
+  }
+}
+
+@media (max-width: 420px) {
+  .compare-button {
+    font-size: 0.85rem;
+    padding-inline: var(--space-1);
+  }
+
+  .compare-button__icon {
+    height: 1.05rem;
+    width: 1.05rem;
   }
 }
 </style>
