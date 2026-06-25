@@ -6,12 +6,14 @@ html {
   color: var(--black);
   font-family: var(--font-body);
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--white);
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
 }
 
 a,
