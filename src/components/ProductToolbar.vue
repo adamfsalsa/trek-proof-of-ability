@@ -36,6 +36,7 @@ defineEmits<{ 'update:itemsPerPage': [value: number]; 'update:sort': [value: str
   justify-content: space-between;
   margin-bottom: var(--space-5);
   min-width: 0;
+  width: 100%;
 }
 
 p {
@@ -71,6 +72,7 @@ select {
   border-radius: var(--radius-button);
   color: var(--black);
   font-size: 1rem;
+  min-width: 0;
   padding: var(--space-1) var(--space-2);
 }
 
@@ -83,23 +85,7 @@ select:focus-visible {
   border-color: var(--brand-red);
 }
 
-@media (max-width: 760px) {
-  .toolbar {
-    margin-bottom: var(--space-4);
-  }
-
-  p,
-  select,
-  label {
-    font-size: 1rem;
-  }
-
-  .toolbar__controls {
-    gap: var(--space-3);
-  }
-}
-
-@media (max-width: 420px) {
+@media (max-width: 640px) {
   .toolbar {
     align-items: stretch;
     display: grid;
@@ -110,16 +96,20 @@ select:focus-visible {
   .toolbar__controls {
     display: grid;
     gap: var(--space-2);
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     justify-content: stretch;
+    width: 100%;
   }
 
   label {
     justify-content: space-between;
+    white-space: normal;
+    width: 100%;
   }
 
   select {
     max-width: 100%;
+    width: 11rem;
   }
 }
 </style>
