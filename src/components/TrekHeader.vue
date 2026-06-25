@@ -28,7 +28,13 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
       </label>
 
       <button class="icon-button site-header__search" type="button" aria-label="Search"><span class="search-icon" aria-hidden="true"></span></button>
-      <button class="icon-button cart-button" type="button" aria-label="Cart"><span aria-hidden="true"></span></button>
+      <button class="icon-button cart-button" type="button" aria-label="Cart">
+        <svg class="cart-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+          <path d="M3 4h2.3l2.2 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4l1.7-6.2H7" />
+          <circle cx="10" cy="20" r="1.5" />
+          <circle cx="18" cy="20" r="1.5" />
+        </svg>
+      </button>
     </div>
   </header>
 </template>
@@ -193,33 +199,20 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
   width: 3px;
 }
 
-.cart-button span {
-  border-bottom: 4px solid currentcolor;
-  border-left: 4px solid currentcolor;
-  border-radius: 0 0 4px 4px;
-  display: inline-block;
-  height: 1.15rem;
-  position: relative;
-  width: 1.45rem;
+.cart-icon {
+  display: block;
+  fill: none;
+  height: 1.75rem;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  width: 1.75rem;
 }
 
-.cart-button span::before,
-.cart-button span::after {
-  background: currentcolor;
-  border-radius: 50%;
-  bottom: -0.55rem;
-  content: '';
-  height: 0.28rem;
-  position: absolute;
-  width: 0.28rem;
-}
-
-.cart-button span::before {
-  left: 0.05rem;
-}
-
-.cart-button span::after {
-  right: 0.05rem;
+.cart-icon circle {
+  fill: currentcolor;
+  stroke: none;
 }
 
 .site-header__menu,
