@@ -62,10 +62,20 @@ strong {
 select {
   appearance: auto;
   background: var(--white);
-  border: 0;
+  border: 1px solid transparent;
+  border-radius: var(--radius-button);
   color: var(--black);
   font-size: 1rem;
-  padding: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+}
+
+select:hover {
+  background: var(--gray-10);
+  border-color: var(--gray-20);
+}
+
+select:focus-visible {
+  border-color: var(--brand-red);
 }
 
 @media (max-width: 760px) {
