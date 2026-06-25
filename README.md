@@ -30,7 +30,7 @@ This project is scoped around those exact signals rather than building a large f
 - Product-card, toolbar, filter, promo, and compare components that could map into a design system
 - Vitest + Testing Library smoke tests
 - GitHub Actions validation for tests and production build
-- Documentation that explains design translation, Figma-to-Vue workflow, AI workflow, accessibility, performance, and image choices
+- Documentation that explains design translation, AI workflow, accessibility, performance, and image choices
 
 ## Local setup
 
@@ -91,13 +91,16 @@ src/styles/base.css
 
 See [`docs/TREK_PLP_TRANSLATION_BRIEF.md`](docs/TREK_PLP_TRANSLATION_BRIEF.md).
 
-Because I did not have access to Trek's internal Figma files, I treated the public Electric Bikes PLP, desktop/mobile screenshots, rendered DOM structure, and observed design tokens as the design reference. The goal was to simulate translating a UX/UI reference into reusable Vue components.
+Because I did not have access to Trek's internal Figma files, I treated the public Electric Bikes PLP, desktop/mobile screenshots, rendered DOM structure, and observed design tokens as the design reference. The goal was to simulate translating a UX/UI reference into reusable Vue components in the same way a frontend engineer would translate a provided design artifact into implementation.
 
-## Figma-to-Vue workflow proof
+The design-translation proof comes from:
 
-See [`docs/FIGMA_TO_VUE_WORKFLOW.md`](docs/FIGMA_TO_VUE_WORKFLOW.md).
-
-A companion Figma file was created to demonstrate a smaller handoff loop: public PLP reference, self-authored ProductCard/ProductGrid component spec, design-token notes, accessibility handoff notes, and mapping to Vue components.
+- Desktop and mobile page references
+- Rendered public DOM structure
+- Observed spacing, color, typography, and component patterns
+- `src/styles/tokens.css` for tokenized CSS decisions
+- Component boundaries that map to PLP sections and reusable UI primitives
+- Documentation of tradeoffs and production caveats
 
 ## Accessibility focus
 
