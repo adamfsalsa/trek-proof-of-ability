@@ -19,7 +19,6 @@ export interface Bike {
   price: number;
   isNew?: boolean;
   colors: ProductColor[];
-  silhouette: 'hardtail' | 'stepthrough' | 'full-suspension' | 'cargo';
   image: BikeImage;
 }
 
