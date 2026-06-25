@@ -41,6 +41,8 @@ defineEmits<{
   display: grid;
   gap: var(--space-10) var(--space-6);
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
+  width: 100%;
 }
 
 @media (max-width: 1180px) {
@@ -50,27 +52,14 @@ defineEmits<{
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 640px) {
   .product-grid {
-    column-gap: var(--space-4);
-    row-gap: var(--space-8);
+    gap: var(--space-6);
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .product-grid :deep(.promo-tile) {
     grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 560px) {
-  .product-grid {
-    column-gap: var(--space-3);
-    row-gap: var(--space-6);
-  }
-}
-
-@media (max-width: 359px) {
-  .product-grid {
-    grid-template-columns: 1fr;
   }
 }
 </style>
