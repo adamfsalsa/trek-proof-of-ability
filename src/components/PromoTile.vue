@@ -10,8 +10,9 @@ defineProps<{
   <article class="promo-tile" aria-labelledby="promo-title">
     <img :src="promo.image.src" :alt="promo.image.alt" loading="lazy" decoding="async" />
     <div class="promo-tile__content">
+      <p class="promo-tile__eyebrow">{{ promo.eyebrow }}</p>
       <h3 id="promo-title">{{ promo.title }}</h3>
-      <p>{{ promo.eyebrow }}</p>
+      <p class="promo-tile__copy">{{ promo.copy }}</p>
       <a href="#">{{ promo.cta }} <span aria-hidden="true">▶</span></a>
     </div>
   </article>
@@ -65,9 +66,15 @@ defineProps<{
   margin: 0;
 }
 
-.promo-tile p {
+.promo-tile__eyebrow,
+.promo-tile__copy {
   font-weight: 700;
-  margin: var(--space-2) 0 var(--space-4);
+  margin: var(--space-2) auto var(--space-4);
+  max-width: 24rem;
+}
+
+.promo-tile__copy {
+  font-weight: 400;
 }
 
 .promo-tile a {
