@@ -51,6 +51,9 @@ function formatPrice(price: number) {
   grid-template-rows: 2.75rem minmax(310px, auto) auto;
   min-width: 0;
   padding-bottom: var(--space-8);
+  transition:
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .product-card:hover {
