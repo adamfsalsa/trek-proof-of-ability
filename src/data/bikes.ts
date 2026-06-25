@@ -14,7 +14,6 @@ export const bikes: Bike[] = [
       { name: 'Dark Star', value: '#164d18' },
       { name: 'Matte Trek Black', value: '#000000' },
     ],
-    silhouette: 'hardtail',
     image: {
       src: unsplash('9tehhmXFeLU'),
       alt: 'Teal electric commuter bike being ridden on a city street.',
@@ -33,7 +32,6 @@ export const bikes: Bike[] = [
       { name: 'Mint', value: '#d7ecd1' },
       { name: 'Silver', value: '#d7d7d7' },
     ],
-    silhouette: 'stepthrough',
     image: {
       src: unsplash('NymqZR6GkgQ'),
       alt: 'White step-through electric bike ridden along a sidewalk.',
@@ -51,7 +49,6 @@ export const bikes: Bike[] = [
       { name: 'Matte Black', value: '#111111' },
       { name: 'Dark Web', value: '#4b4b4b' },
     ],
-    silhouette: 'full-suspension',
     image: {
       src: unsplash('29d_e8sa10w'),
       alt: 'Rider on a gray fat-tire electric bike in an urban setting.',
@@ -69,7 +66,6 @@ export const bikes: Bike[] = [
       { name: 'Seafoam', value: '#d7ecd1' },
       { name: 'Bronze', value: '#98674f' },
     ],
-    silhouette: 'full-suspension',
     image: {
       src: unsplash('yy9wh76UmBo'),
       alt: 'Cyclist riding a gray electric bike near concrete city architecture.',
@@ -87,7 +83,6 @@ export const bikes: Bike[] = [
       { name: 'Blue Sage', value: '#007ab8' },
       { name: 'Trek Green', value: '#45b931' },
     ],
-    silhouette: 'stepthrough',
     image: {
       src: unsplash('Juvjki6ApzI'),
       alt: 'White electric bicycle ridden down a city street.',
@@ -105,7 +100,6 @@ export const bikes: Bike[] = [
       { name: 'Galactic Grey', value: '#6f7775' },
       { name: 'Deep Smoke', value: '#2f3437' },
     ],
-    silhouette: 'cargo',
     image: {
       src: unsplash('LhFecWXJuIE'),
       alt: 'Rider on an electric bike moving through a city street.',
