@@ -10,9 +10,9 @@ I built a focused Vue + TypeScript project using the public Electric Bikes produ
 
 Links:
 
-- Live demo: [add deployed URL]
-- GitHub repo: [add GitHub URL]
-- Pull request / implementation notes: [add PR URL]
+- Live demo: https://trek-proof-of-ability.vercel.app/
+- GitHub repo: https://github.com/adamfsalsa/trek-proof-of-ability
+- Pull request / implementation notes: https://github.com/adamfsalsa/trek-proof-of-ability/pull/3
 
 A few things I focused on:
 
@@ -32,4 +32,4 @@ Adam Salsa
 
 ## Ultra-short application field version
 
-I built a Vue + TypeScript proof project using a public Electric Bikes PLP as a design reference. It demonstrates responsive/accessibility-minded component architecture, product-listing UI, comparison state, design-token CSS, tests/build validation, documentation, and a responsible AI-assisted workflow. Live demo: [URL]. GitHub: [URL].
+I built a Vue + TypeScript proof project using a public Electric Bikes PLP as a design reference. It demonstrates responsive/accessibility-minded component architecture, product-listing UI, comparison state, design-token CSS, tests/build validation, documentation, and a responsible AI-assisted workflow. Live demo: https://trek-proof-of-ability.vercel.app/. GitHub: https://github.com/adamfsalsa/trek-proof-of-ability.
