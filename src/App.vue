@@ -38,10 +38,11 @@ function toggleCompare(bikeId: string) {
 </script>
 
 <template>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <TrekHeader />
 
   <main id="main-content">
-    <h1 class="sr-only">Premium Electric Bikes | E-Bikes for Sale - Trek Bikes</h1>
+    <h1 class="sr-only">Electric bikes product listing</h1>
 
     <HeroMarquee />
     <Breadcrumbs />
