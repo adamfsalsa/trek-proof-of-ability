@@ -1,6 +1,18 @@
 <script setup lang="ts">
 defineProps<{ resultCount: number; itemsPerPage: number; sort: string }>();
-defineEmits<{ 'update:itemsPerPage': [value: number]; 'update:sort': [value: string] }>();
+
+const emit = defineEmits<{
+  'update:itemsPerPage': [value: number];
+  'update:sort': [value: string];
+}>();
+
+function handleItemsChange(event: Event) {
+  emit('update:itemsPerPage', Number((event.target as HTMLSelectElement).value));
+}
+
+function handleSortChange(event: Event) {
+  emit('update:sort', (event.target as HTMLSelectElement).value);
+}
 </script>
 
 <template>
@@ -9,7 +21,7 @@ defineEmits<{ 'update:itemsPerPage': [value: number]; 'update:sort': [value: str
     <div class="toolbar__controls">
       <label>
         <strong>Items</strong>
-        <select :value="itemsPerPage" aria-label="Items per page" @change="$emit('update:itemsPerPage', Number(($event.target as HTMLSelectElement).value))">
+        <select :value="itemsPerPage" aria-label="Items per page" @change="handleItemsChange">
           <option :value="24">24</option>
           <option :value="48">48</option>
           <option :value="72">72</option>
@@ -17,7 +29,7 @@ defineEmits<{ 'update:itemsPerPage': [value: number]; 'update:sort': [value: str
       </label>
       <label>
         <strong>Sort by</strong>
-        <select :value="sort" aria-label="Sort products" @change="$emit('update:sort', ($event.target as HTMLSelectElement).value)">
+        <select :value="sort" aria-label="Sort products" @change="handleSortChange">
           <option value="featured">Featured</option>
           <option value="az">A-Z</option>
           <option value="price-low">Price Low-High</option>
