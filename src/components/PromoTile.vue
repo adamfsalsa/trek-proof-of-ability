@@ -1,0 +1,98 @@
+<script setup lang="ts">
+import type { PromoTile } from '../types/bike';
+
+defineProps<{
+  promo: PromoTile;
+}>();
+</script>
+
+<template>
+  <article class="promo-tile" aria-labelledby="promo-title">
+    <img :src="promo.image.src" :alt="promo.image.alt" loading="lazy" decoding="async" />
+    <div class="promo-tile__content">
+      <p class="promo-tile__eyebrow">{{ promo.eyebrow }}</p>
+      <h3 id="promo-title">{{ promo.title }}</h3>
+      <p class="promo-tile__copy">{{ promo.copy }}</p>
+      <a href="#">{{ promo.cta }} <span aria-hidden="true">▶</span></a>
+    </div>
+  </article>
+</template>
+
+<style scoped>
+.promo-tile {
+  background: var(--gray-90);
+  color: var(--white);
+  display: grid;
+  min-height: 420px;
+  overflow: hidden;
+  position: relative;
+}
+
+.promo-tile::after {
+  background: linear-gradient(rgb(0 0 0 / 0.18), rgb(0 0 0 / 0.72));
+  content: '';
+  inset: 0;
+  position: absolute;
+  transition: background 180ms ease;
+}
+
+.promo-tile:hover::after {
+  background: linear-gradient(rgb(0 0 0 / 0.24), rgb(0 0 0 / 0.78));
+}
+
+.promo-tile img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  transition: transform 220ms ease;
+  width: 100%;
+}
+
+.promo-tile:hover img {
+  transform: scale(1.04);
+}
+
+.promo-tile__content {
+  align-self: end;
+  padding: var(--space-5);
+  position: relative;
+  text-align: center;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 0.65);
+  z-index: 1;
+}
+
+.promo-tile h3 {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  margin: 0;
+}
+
+.promo-tile__eyebrow,
+.promo-tile__copy {
+  font-weight: 700;
+  margin: var(--space-2) auto var(--space-4);
+  max-width: 24rem;
+}
+
+.promo-tile__copy {
+  font-weight: 400;
+}
+
+.promo-tile a {
+  color: var(--white);
+  display: inline-flex;
+  font-weight: 900;
+  gap: var(--space-1);
+  text-underline-offset: 0.16em;
+}
+
+.promo-tile a:hover {
+  transform: translateX(2px);
+}
+
+@media (max-width: 760px) {
+  .promo-tile {
+    min-height: 300px;
+  }
+}
+</style>

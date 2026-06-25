@@ -1,0 +1,37 @@
+:root {
+  --brand-red: #ce1a2b;
+  --brand-gray: #1a1a1a;
+  --brand-blue: #007ab8;
+
+  --gray-02: #fafafa;
+  --gray-05: #f4f4f4;
+  --gray-10: #e8e8e8;
+  --gray-20: #d1d1d1;
+  --gray-30: #bababa;
+  --gray-70: #5f5f5f;
+  --gray-80: #484848;
+  --gray-90: #313131;
+  --gray-100: #1a1a1a;
+
+  --white: #ffffff;
+  --black: #000000;
+
+  --font-body: Roboto, Arial, Helvetica, sans-serif;
+  --font-heading: Avalon-Bold, Arial, Helvetica, sans-serif;
+
+  --header-height-desktop: 60px;
+  --header-height-mobile: 90px;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+
+  --radius-button: 8px;
+  --focus-outline: 3px solid var(--brand-blue);
+  --card-inner-padding: 1.5rem;
+}
