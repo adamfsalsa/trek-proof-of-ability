@@ -64,11 +64,14 @@ function toggleCompare(bikeId: string) {
   display: grid;
   gap: var(--space-6);
   grid-template-columns: minmax(16rem, 1fr) minmax(0, 5fr);
+  min-width: 0;
   padding: var(--space-5) var(--space-5) var(--space-10);
+  width: 100%;
 }
 
 .plp__results {
   min-width: 0;
+  width: 100%;
 }
 
 @media (max-width: 900px) {
@@ -78,9 +81,15 @@ function toggleCompare(bikeId: string) {
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
   .plp {
     padding: var(--space-4) var(--space-3) var(--space-8);
+  }
+}
+
+@media (max-width: 420px) {
+  .plp {
+    padding-inline: var(--space-2);
   }
 }
 </style>
