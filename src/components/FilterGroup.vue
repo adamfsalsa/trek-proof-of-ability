@@ -10,7 +10,7 @@ const isOpen = ref(Boolean(props.group.defaultOpen));
   <section class="filter-group">
     <h3>
       <button type="button" :aria-expanded="isOpen" @click="isOpen = !isOpen">
-        <span>{{ group.label }}</span><span>{{ isOpen ? '⌃' : '⌄' }}</span>
+        <span>{{ group.label }}</span><span aria-hidden="true">{{ isOpen ? '⌃' : '⌄' }}</span>
       </button>
     </h3>
     <ul v-show="isOpen">
@@ -23,10 +23,66 @@ const isOpen = ref(Boolean(props.group.defaultOpen));
 </template>
 
 <style scoped>
-.filter-group { border-bottom: 1px solid #e8e8e8; padding: .75rem 0; }
-h3 { margin: 0; }
-button { background: transparent; border: 0; display: flex; justify-content: space-between; width: 100%; font-weight: 800; padding: .5rem 0; }
-ul { list-style: none; margin: .5rem 0 0; padding: 0; }
-a, label { color: black; display: block; padding: .4rem 0; text-decoration: none; }
-input { accent-color: #1a1a1a; }
+.filter-group {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0.75rem 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-button);
+  display: flex;
+  font-weight: 800;
+  justify-content: space-between;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+button:hover {
+  background: var(--gray-10);
+}
+
+button[aria-expanded='true'] {
+  color: var(--brand-red);
+}
+
+ul {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+a,
+label {
+  border-radius: var(--radius-button);
+  color: black;
+  display: block;
+  padding: 0.45rem 0.5rem;
+  text-decoration: none;
+}
+
+a:hover,
+label:hover {
+  background: var(--gray-10);
+}
+
+a:hover em,
+label:hover em {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+input {
+  accent-color: #1a1a1a;
+}
+
+label:has(input:checked) {
+  background: #f4f4f4;
+  font-weight: 900;
+}
 </style>
