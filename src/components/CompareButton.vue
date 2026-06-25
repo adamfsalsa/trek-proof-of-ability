@@ -20,11 +20,32 @@ defineEmits<{
   align-items: center;
   background: transparent;
   border: 0;
+  border-radius: var(--radius-button);
   color: var(--black);
   display: inline-flex;
   font-size: 1rem;
   gap: var(--space-2);
-  padding: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+}
+
+.compare-button:hover {
+  background: var(--gray-10);
+  color: var(--brand-red);
+}
+
+.compare-button:active {
+  transform: translateY(1px);
+}
+
+.compare-button[aria-pressed='true'] {
+  color: var(--brand-red);
+  font-weight: 900;
+}
+
+.compare-button[aria-pressed='true'] .compare-button__icon {
+  background: var(--brand-red);
+  border-color: var(--brand-red);
+  color: var(--white);
 }
 
 .compare-button__icon {
