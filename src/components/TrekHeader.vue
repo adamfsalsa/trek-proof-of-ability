@@ -50,6 +50,7 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
 
 .site-header__logo {
   align-items: center;
+  border-radius: var(--radius-button);
   color: #f4d046;
   display: inline-flex;
   font-family: var(--font-heading);
@@ -58,7 +59,13 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
   font-weight: 900;
   gap: var(--space-2);
   letter-spacing: 0.08em;
+  padding: var(--space-1) var(--space-2);
   text-decoration: none;
+}
+
+.site-header__logo:hover {
+  background: rgb(255 255 255 / 0.08);
+  color: #ffe16a;
 }
 
 .logo-rule {
@@ -80,11 +87,38 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
 }
 
 .site-header__nav a {
+  border-radius: var(--radius-button);
   color: var(--white);
   font-size: 0.875rem;
   font-weight: 800;
+  padding: var(--space-2) var(--space-1);
+  position: relative;
   text-decoration: none;
   white-space: nowrap;
+}
+
+.site-header__nav a::after {
+  background: var(--brand-red);
+  bottom: 0;
+  content: '';
+  height: 2px;
+  left: var(--space-1);
+  opacity: 0;
+  position: absolute;
+  right: var(--space-1);
+  transform: scaleX(0.4);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.site-header__nav a:hover {
+  background: rgb(255 255 255 / 0.08);
+}
+
+.site-header__nav a:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .site-header__actions {
@@ -102,6 +136,12 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
   padding: 0.65rem 0.8rem;
 }
 
+.search-field:hover,
+.search-field:focus-within {
+  border-color: var(--white);
+  box-shadow: 0 0 0 2px rgb(255 255 255 / 0.14);
+}
+
 .search-field input {
   background: transparent;
   border: 0;
@@ -117,10 +157,20 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
 .icon-button {
   background: transparent;
   border: 0;
+  border-radius: var(--radius-button);
   color: var(--white);
   font-size: 1.9rem;
   line-height: 1;
   padding: var(--space-2);
+}
+
+.icon-button:hover {
+  background: rgb(255 255 255 / 0.1);
+  color: #ffe16a;
+}
+
+.icon-button:active {
+  transform: translateY(1px);
 }
 
 .search-icon {
