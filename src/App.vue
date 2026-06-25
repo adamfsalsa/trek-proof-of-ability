@@ -14,6 +14,20 @@ const selectedIds = ref<string[]>([]);
 const itemsPerPage = ref(24);
 const sort = ref('featured');
 
+const displayedBikes = computed(() => {
+  const products = [...bikes];
+
+  if (sort.value === 'az') {
+    products.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  if (sort.value === 'price-low') {
+    products.sort((a, b) => a.price - b.price);
+  }
+
+  return products.slice(0, itemsPerPage.value);
+});
+
 const selectedBikes = computed(() => bikes.filter((bike) => selectedIds.value.includes(bike.id)));
 
 function toggleCompare(bikeId: string) {
@@ -46,7 +60,7 @@ function toggleCompare(bikeId: string) {
         />
 
         <ProductGrid
-          :products="bikes"
+          :products="displayedBikes"
           :promo="promoTile"
           :selected-ids="selectedIds"
           @toggle-compare="toggleCompare"
