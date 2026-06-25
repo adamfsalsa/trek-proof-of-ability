@@ -29,7 +29,7 @@ defineProps<{
 }
 
 .promo-tile::after {
-  background: linear-gradient(rgb(0 0 0 / 0.05), rgb(0 0 0 / 0.58));
+  background: linear-gradient(rgb(0 0 0 / 0.18), rgb(0 0 0 / 0.72));
   content: '';
   inset: 0;
   position: absolute;
@@ -37,7 +37,7 @@ defineProps<{
 }
 
 .promo-tile:hover::after {
-  background: linear-gradient(rgb(0 0 0 / 0.12), rgb(0 0 0 / 0.68));
+  background: linear-gradient(rgb(0 0 0 / 0.24), rgb(0 0 0 / 0.78));
 }
 
 .promo-tile img {
@@ -58,6 +58,7 @@ defineProps<{
   padding: var(--space-5);
   position: relative;
   text-align: center;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 0.65);
   z-index: 1;
 }
 
