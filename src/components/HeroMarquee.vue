@@ -70,6 +70,7 @@ import { heroImage } from '../data/bikes';
 
 .hero__button {
   background: var(--white);
+  border: 2px solid transparent;
   border-radius: var(--radius-button);
   color: var(--gray-100);
   display: inline-flex;
@@ -82,6 +83,13 @@ import { heroImage } from '../data/bikes';
 
 .hero__button:hover {
   background: var(--gray-10);
+  border-color: var(--white);
+  box-shadow: 0 10px 22px rgb(0 0 0 / 0.22);
+  transform: translateY(-2px);
+}
+
+.hero__button:active {
+  transform: translateY(0);
 }
 
 @media (max-width: 760px) {
