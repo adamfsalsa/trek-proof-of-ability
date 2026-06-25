@@ -32,6 +32,11 @@ defineProps<{
   content: '';
   inset: 0;
   position: absolute;
+  transition: background 180ms ease;
+}
+
+.promo-tile:hover::after {
+  background: linear-gradient(rgb(0 0 0 / 0.12), rgb(0 0 0 / 0.68));
 }
 
 .promo-tile img {
@@ -39,7 +44,12 @@ defineProps<{
   inset: 0;
   object-fit: cover;
   position: absolute;
+  transition: transform 220ms ease;
   width: 100%;
+}
+
+.promo-tile:hover img {
+  transform: scale(1.04);
 }
 
 .promo-tile__content {
@@ -62,7 +72,14 @@ defineProps<{
 
 .promo-tile a {
   color: var(--white);
+  display: inline-flex;
   font-weight: 900;
+  gap: var(--space-1);
+  text-underline-offset: 0.16em;
+}
+
+.promo-tile a:hover {
+  transform: translateX(2px);
 }
 
 @media (max-width: 760px) {
