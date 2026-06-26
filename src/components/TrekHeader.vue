@@ -1,16 +1,34 @@
 <script setup lang="ts">
-const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Parts', 'Accessories', 'Apparel', 'Sale', 'Pre-owned', 'Ride Club', 'Bike Shops'];
+import { ref } from 'vue';
+import { navItems } from '../data/navigation';
+
+const mobileMenuOpen = ref(false);
+
+function toggleMobileMenu() {
+  mobileMenuOpen.value = !mobileMenuOpen.value;
+}
+
+function closeMobileMenu() {
+  mobileMenuOpen.value = false;
+}
 </script>
 
 <template>
   <header class="site-header" aria-label="Primary navigation">
-    <button class="icon-button site-header__menu" type="button" aria-label="Open menu">
+    <button
+      class="icon-button site-header__menu"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="mobile-nav-menu"
+      :aria-expanded="mobileMenuOpen"
+      @click="toggleMobileMenu"
+    >
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <a class="site-header__logo" href="#main-content" aria-label="Trek home">
+    <a class="site-header__logo" href="#main-content" aria-label="Trek home" @click="closeMobileMenu">
       <span class="logo-text">TREK</span>
       <span class="logo-rule" aria-hidden="true"></span>
       <span class="logo-anniversary">50</span>
@@ -18,6 +36,15 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
 
     <nav class="site-header__nav" aria-label="Product categories">
       <a v-for="item in navItems" :key="item" href="#">{{ item }}</a>
+    </nav>
+
+    <nav
+      v-if="mobileMenuOpen"
+      id="mobile-nav-menu"
+      class="site-header__mobile-nav"
+      aria-label="Mobile product categories"
+    >
+      <a v-for="item in navItems" :key="item" href="#" @click="closeMobileMenu">{{ item }}</a>
     </nav>
 
     <div class="site-header__actions">
@@ -125,6 +152,10 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
 .site-header__nav a:hover::after {
   opacity: 1;
   transform: scaleX(1);
+}
+
+.site-header__mobile-nav {
+  display: none;
 }
 
 .site-header__actions {
@@ -251,9 +282,44 @@ const navItems = ['Electric', 'Mountain', 'Road', 'Gravel', 'City', 'Kids', 'Par
     place-items: center;
   }
 
+  .site-header__menu[aria-expanded='true'] {
+    background: rgb(255 255 255 / 0.14);
+    color: #ffe16a;
+  }
+
   .site-header__nav,
   .search-field {
     display: none;
+  }
+
+  .site-header__mobile-nav {
+    background: var(--white);
+    border: 1px solid var(--gray-20);
+    box-shadow: 0 18px 34px rgb(0 0 0 / 0.24);
+    color: var(--gray-100);
+    display: grid;
+    gap: var(--space-1);
+    left: var(--space-5);
+    padding: var(--space-3);
+    position: absolute;
+    top: calc(100% + var(--space-1));
+    width: min(18rem, calc(100vw - 2rem));
+    z-index: 40;
+  }
+
+  .site-header__mobile-nav a {
+    border-radius: var(--radius-button);
+    color: var(--gray-100);
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 0.85rem var(--space-3);
+    text-decoration: none;
+  }
+
+  .site-header__mobile-nav a:hover,
+  .site-header__mobile-nav a:focus-visible {
+    background: var(--gray-05);
+    color: var(--brand-red);
   }
 
   .site-header__logo {
