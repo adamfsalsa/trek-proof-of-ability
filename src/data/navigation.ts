@@ -1,0 +1,15 @@
+export const navItems = [
+  'Electric',
+  'Mountain',
+  'Road',
+  'Gravel',
+  'City',
+  'Kids',
+  'Parts',
+  'Accessories',
+  'Apparel',
+  'Sale',
+  'Pre-owned',
+  'Ride Club',
+  'Bike Shops',
+];
