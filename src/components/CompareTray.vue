@@ -36,9 +36,10 @@ defineEmits<{
   left: 50%;
   max-width: min(52rem, calc(100vw - 2rem));
   padding: var(--space-3) var(--space-4);
-  position: sticky;
+  position: fixed;
   transform: translateX(-50%);
-  z-index: 10;
+  width: max-content;
+  z-index: 50;
 }
 
 .compare-tray span {
@@ -68,9 +69,12 @@ defineEmits<{
 @media (max-width: 760px) {
   .compare-tray {
     align-items: stretch;
+    bottom: var(--space-3);
     flex-direction: column;
-    left: auto;
+    left: var(--space-3);
+    right: var(--space-3);
     transform: none;
+    width: auto;
   }
 
   .compare-tray button {
